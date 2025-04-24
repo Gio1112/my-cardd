@@ -1,0 +1,169 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Modern, clean sans-serif */
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #86af49, #d4ac0d, #86af49, #d4ac0d); /* Earthy tones */
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    background-attachment: fixed;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    background-color: #f0ead6; /* Light beige */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    text-align: center;
+    animation: shadowPulse 4s ease-in-out infinite alternate,
+               scalePulse 5s ease-in-out infinite alternate; /* Added scalePulse */
+}
+
+@keyframes shadowPulse {
+    0% {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Slightly larger shadow */
+    }
+}
+
+@keyframes scalePulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02); /* Very subtle scale up */
+    }
+}
+
+.profile-image-container {
+    width: 110px; /* Slightly larger than the image */
+    height: 110px;
+    border-radius: 50%;
+    position: relative; /* For absolute positioning of the border */
+    margin: 0 auto 20px; /* Center and add bottom margin */
+    overflow: hidden; /* Clip the image to the circle */
+}
+
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 50%;
+    z-index: -1; /* Place behind the image */
+    background-size: 400% 400%;
+    animation: borderAnimation 5s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+}
+
+.bio h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Make the name stand out */
+    position: relative; /* For absolute positioning of the underline */
+    overflow: hidden; /* Clip the animation */
+    display: inline-block; /* So the underline spans only the text */
+    color: #222831; /* Dark charcoal */
+}
+
+.bio h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust position as needed */
+    width: 100%;
+    height: 2px;
+    background-color: #d4ac0d; /* Accent color */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1); /* More dynamic ease-out */
+}
+
+.bio h1:hover::after {
+    transform: translateX(0); /* Slide in on hover */
+}
+
+.bio p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; /* Lighter weight for the bio text */
+    color: #393e46; /* Slightly lighter charcoal */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1.2s ease-out 0.6s forwards; /* Smoother fade-in */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.social-links h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #222831;
+    margin-bottom: 15px;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-links a {
+    font-family: 'Roboto Mono', monospace; /* A cool monospace font for links */
+    text-decoration: none;
+    color: #00adb5; /* Teal accent */
+    transition: color 0.3s ease; /* Basic transition for hover effect */
+    transform: translateY(0) scale(1); /* Initial vertical position and scale */
+    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.3s ease;
+    transform-origin: center bottom;
+}
+
+.social-links a:hover {
+    color: #008080; /* Darker teal on hover */
+    transform: translateY(-5px) scale(1.1); /* Move up slightly and scale */
+    animation: none; /* Remove the wobble animation on this hover */
+}
