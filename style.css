@@ -168,21 +168,3 @@ body {
     animation: none; /* Remove the wobble animation on this hover */
 }
 
-.discord-widget {
-    background-color: #2c2f33; /* Discord's dark background color (approx.) */
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px; /* Add some space above the widget */
-    text-align: center;
-}
-
-.discord-widget h2 {
-    color: #7289da; /* Discord's blue color */
-    margin-bottom: 10px;
-}
-
-/* You might need to adjust iframe styles further if needed */
-.discord-widget iframe {
-    border-radius: 5px;
-}
