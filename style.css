@@ -32,6 +32,22 @@ body {
     text-align: center;
     animation: shadowPulse 4s ease-in-out infinite alternate,
                scalePulse 5s ease-in-out infinite alternate; /* Added scalePulse */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        animation: borderRadiusChange 5s infinite alternate;
+}
+
+.container:hover {
+    transform: perspective(200px) rotateX(2deg) rotateY(5deg) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes borderRadiusChange {
+    0% {
+        border-radius: 8px;
+    }
+    100% {
+        border-radius: 15px;
+    }
 }
 
 @keyframes shadowPulse {
@@ -99,6 +115,11 @@ body {
     overflow: hidden; /* Clip the animation */
     display: inline-block; /* So the underline spans only the text */
     color: #222831; /* Dark charcoal */
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.bio h1:hover {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .bio h1::after {
@@ -168,3 +189,16 @@ body {
     animation: none; /* Remove the wobble animation on this hover */
 }
 
+.audio-player {
+    position: fixed; /* To keep it in view even when scrolling */
+    bottom: 20px;
+    left: 20px;
+    z-index: 100; /* To ensure it's above other elements */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.audio-player audio {
+    width: 200px; /* Adjust as needed */
+}
