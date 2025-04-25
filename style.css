@@ -34,6 +34,7 @@ body {
                scalePulse 5s ease-in-out infinite alternate; /* Added scalePulse */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         animation: borderRadiusChange 5s infinite alternate;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .container:hover {
